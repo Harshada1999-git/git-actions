@@ -1,5 +1,7 @@
 name: Workflow Runners
-on: push
+on: 
+  - push
+  - pull_request
 jobs:
   ubuntu-echo:
     runs-on: ubuntu-latest
