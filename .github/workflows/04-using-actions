@@ -13,8 +13,7 @@ jobs:
         run: actions/checkout@v4
       - name: Printing Folders
         run: ls
-
-
+        
     # checkout code from repo
     #  1) install dependencies
     #  2) execute automated tests
