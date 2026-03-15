@@ -1,0 +1,11 @@
+name: 02-Workflow Events
+
+on: push
+
+jobs: 
+  echo: 
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "event name: ${{github. event_name}}"
+      
