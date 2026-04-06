@@ -31,7 +31,15 @@ jobs:
                 node-version: ${{ inputs.node-version }}
                 # node-version: '20.x'
             # 2. install dependencies
+            - name: Download cache Dependencies
+              uses: actions/cache@v3
+              if: ${{ inputs.use-cache}}
+              id: cache
+              with:
+                path: 13-caching/react-app/node_modules
+                key: deps-node-modules- ${{ hashFiles('**/package/react-app/package-lock.json')}}
             - name: Install Dependencies
+              if: steps.cache.outputs.cache-hit != 'true'
               run: npm ci
               # 3. unit testing, building
             - name: Testing
