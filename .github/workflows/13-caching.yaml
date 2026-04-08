@@ -44,7 +44,7 @@ jobs:
               id: cache
               with:
                 path: 13-caching/react-app/node_modules
-                key: steps.cache-key.outputs.CACHE_KEY
+                key: ${{ steps.cache-key.outputs.CACHE_KEY }}
             - name: Install Dependencies
               if: steps.cache.outputs.cache-hit != 'true'
               run: npm ci          
@@ -72,8 +72,8 @@ jobs:
                 path: 13-caching/react-app/node_modules
                 key: ${{ needs.install-deps.outputs.deps-cache-key }}
             # - name: Install Dependencies
-            #   if: steps.cache.outputs.cache-hit != 'true'
-            #   run: npm ci
+                if: steps.cache.outputs.cache-hit != 'true'
+                run: npm ci
               # 3. unit testing, building
             - name: Testing
               run: npm run test
