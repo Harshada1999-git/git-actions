@@ -3,8 +3,7 @@ on:
   workflow_dispatch:
 jobs:
   backwards-compatibility:
-    name: ${{matrix.os}}-${{matrix.name}}
-    runs-on: ${{matrix.os}}
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node: [18.x, 20.x, 21.x]
