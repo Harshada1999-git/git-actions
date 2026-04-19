@@ -1,4 +1,5 @@
-name: 17-custon Actions -composite
+name: 17 - 1 -custon Actions -composite
+run-name: 17 - 1 -custon Actions -composite | env - ${{ inputs.target-env}}
 
 on:
     workflow_dispatch:
@@ -26,6 +27,7 @@ jobs:
               with:
                 node-version: 20.x
                 working-dir: ${{ env.working-directory }}
+                target-env: ${{ inputs.target-env }}
             - name: Test
               run: npm run test
             - name: Build
